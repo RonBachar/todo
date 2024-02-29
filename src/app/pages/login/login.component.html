@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-content>
+        <P>Sign Into Your Account </P>
+        <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input
+                        formControlName="email"
+                        matInput
+                        placeholder="Enter email address"
+                        required
+                    />
+                    <mat-error *ngIf="!loginForm.controls['email'].valid">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input
+                        formControlName="password"
+                        matInput
+                        [type]="hide ? 'password' : 'text'"
+                        requi
+                        red
+                    />
+                    <button
+                        mat-icon-button
+                        matSuffix
+                        (click)="hide = !hide"
+                        [attr.aria-label]="'Hide Password'"
+                        [attr.aria-pressed]="hide"
+                    >
+                        <mat-icon>
+                            {{ hide ? "visibility_off" : "visibility" }}
+                        </mat-icon>
+                    </button>
+
+                    <mat-error *ngIf="!loginForm.controls['password'].valid">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+                <button mat-flat-button color="primary">Login</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

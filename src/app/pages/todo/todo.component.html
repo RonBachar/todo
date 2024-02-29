@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <div class="row">
+        <h2>Manage Todos</h2>
+        <button mat-fab extended color="accent" (click)="openSlidePanel()">
+            <mat-icon>add_circle</mat-icon>
+            Add Todo
+        </button>
+    </div>
+
+    <ng-container *ngFor="let todo of todos">
+        <app-todo-card [type]="todo.status" [todo]="todo"></app-todo-card>
+    </ng-container>
+    
+</div>
+
+<app-slide-panel></app-slide-panel>
